@@ -1,11 +1,18 @@
 server:
-  port: 9001
+  port: 8003
 spring:
-  thymeleaf:
-    cache: false
+  datasource:
+    url: jdbc:mysql://localhost:3306/springcloud01?useUnicode=true&&characterEncoding=UTF-8&&serverTimezone=GMT%2B8
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
   application:
-    name: UserWeb
+    name: UserProvider
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:10086/eureka,http://localhost:10087/eureka
+      defaultZone: http://localhost:10087/eureka,http://localhost:10086/eureka
